@@ -1,5 +1,7 @@
+package edu.ksu.cs1322.lab3;
 import java.util.ArrayList;
 import java.util.Scanner;
+
 public class Quiz {
     private ArrayList<Question> questionList = new ArrayList<>();
 

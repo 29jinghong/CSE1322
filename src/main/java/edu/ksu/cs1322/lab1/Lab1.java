@@ -1,5 +1,7 @@
+package edu.ksu.cs1322.lab1;
+
 public class Lab1 {
-    public static void main(String[] args){
+    public static void runLab1(){
         //Create normal car
         char [][]myArray = make_forward();
         printArray(myArray);

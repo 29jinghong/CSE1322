@@ -1,3 +1,5 @@
+package edu.ksu.cs1322.lab3;
+
 public class Question {
     private String questionText = "";
     private String questionAnswer = "";

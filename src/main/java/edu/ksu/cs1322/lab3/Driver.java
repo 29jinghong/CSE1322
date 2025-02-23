@@ -1,3 +1,4 @@
+package edu.ksu.cs1322.lab3;
 import java.util.Scanner;
 public class Driver {
     public static void main(String[] args) {

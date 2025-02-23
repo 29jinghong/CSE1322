@@ -1,3 +1,4 @@
+package edu.ksu.cs1322.lab2;
 import java.util.Scanner;
 
 public class Lab2 {
@@ -7,16 +8,18 @@ public class Lab2 {
 
         boolean quit = false;
         int userChoice = -1;
+        Scanner sc = new Scanner(System.in);
+
         while(!quit){
             System.out.println();
             boolean isValidInput = false;
-            Scanner sc = new Scanner(System.in);
             printMenu();
+
             while(!isValidInput){
                 if(sc.hasNextInt()){
                     userChoice = sc.nextInt();
                     if(userChoice > 8 || userChoice < 1){
-                        System.out.println("Please enter a valid integer)");
+                        System.out.println("Please enter a valid integer");
                     }else{
                         isValidInput = true;
                     }
@@ -25,6 +28,7 @@ public class Lab2 {
                     sc.next();
                 }
             }
+
             switch (userChoice){
                 case 1://Sold One Milk
                     Milk.lowerQuantity(1);
@@ -38,6 +42,7 @@ public class Lab2 {
                     break;
                 case 4://Change the price of Bread
                     System.out.println("Please enter a new price for Bread");
+                    Bread.setPrice(sc.nextFloat());
                     break;
                 case 5://Add Milk to inventory
                     System.out.println("How much Milk would you like to add to the inventory?");
@@ -49,16 +54,19 @@ public class Lab2 {
                     break;
                 case 7://See inventory
                     System.out.print("Milk: ");
-                    toString(Milk);
+                    displayStockItem(Milk);
                     System.out.print("Bread: ");
-                    toString(Bread);
+                    displayStockItem(Bread);
                     break;
                 case 8:
                     quit = true;
+                    break;
             }
         }
 
+        sc.close();
     }
+
     public static void printMenu(){
         System.out.println("1. Sold One Milk");
         System.out.println("2. Sold One Bread");
@@ -70,7 +78,7 @@ public class Lab2 {
         System.out.println("8. Quit");
     }
 
-    public static void toString(StockItem item){
+    public static void displayStockItem(StockItem item){
         System.out.println("Item number: "+item.getId()+" is "+item.getDescription()+" has price $"+item.getPrice()+" we currently have "+item.getQuantity()+" in stock");
     }
 }
